@@ -1,5 +1,5 @@
 console.log("Hello via Bun!");
 
-import { dbInit } from "./data/db";
+import { dbInit } from "./src/data/db";
 
 dbInit();

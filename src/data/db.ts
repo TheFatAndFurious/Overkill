@@ -1,7 +1,7 @@
 import { Database } from "bun:sqlite";
 
 const dbPath = process.env.DATABASE_PATH;
-const db = new Database(dbPath, { create: true });
+export const db = new Database(dbPath, { create: true });
 
 export async function dbInit(): Promise<void> {
   try {
