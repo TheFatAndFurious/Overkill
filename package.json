@@ -2,6 +2,9 @@
   "name": "overkill",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "dev": " bun --env-file=.env.development  run index.ts"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
