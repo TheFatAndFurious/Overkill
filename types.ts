@@ -6,3 +6,10 @@ export type User = {
   last_name: string;
   role?: string;
 };
+
+export type Article = {
+  title: string;
+  description: string;
+  content: string;
+  is_published?: boolean;
+};
