@@ -28,8 +28,6 @@ export async function dbInit(): Promise<void> {
     db.run(
       "CREATE TABLE IF NOT EXISTS articles_authors(article_id INTEGER, author_id INTEGER, FOREIGN KEY(article_id) REFERENCES articles(article_id), FOREIGN KEY(author_id) REFERENCES users(user_id))"
     );
-
-    db.close();
   } catch (error) {
     return console.log(error);
   }
