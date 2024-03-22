@@ -13,3 +13,22 @@ export type Article = {
   content: string;
   is_published?: boolean;
 };
+
+export type Tag = {
+  tag_name: string;
+};
+
+export type Role = {
+  role_name: string;
+};
+
+export enum Tables {
+  Users = "users",
+  Articles = "articles",
+  Tags = "tags",
+  Roles = "roles",
+  Articles_Tags = "articles_tags",
+  Articles_Authors = "articles_authors",
+}
+
+export type DatabaseEntity = User | Article | Tag | Role;

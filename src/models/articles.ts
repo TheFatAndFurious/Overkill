@@ -1,13 +1,18 @@
-import type { Article } from "../../types";
+import type { Tables } from "../../types";
 import { db } from "../data/db";
 
-async function createArticle(article: Article): Promise<void> {
+async function create(
+  table: Tables,
+  newOne: Record<string, any>
+): Promise<void> {
   try {
-    const { title, description, content } = article;
+    const fields = Object.keys(newOne);
+    const placeholders = fields.map(() => "?").join(",");
+    const values = fields.map((field) => newOne[field]);
     const query = db.prepare(
-      "INSERT INTO articles (title, description, content) VALUES (?, ?, ?)"
+      `INSERT INTO ${table} (${fields.join(",")}) VALUES (${placeholders})`
     );
-    query.run(title, description, content);
+    query.run(...values);
     query.finalize();
   } catch (error) {
     console.log(error);
